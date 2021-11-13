@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 92px;
+  padding-top: 8px;
+  padding-left: 21px;
+
+  background-color: #cf2b2b;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header h1 {
+  font-family: "Righteous", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 44px;
+
+  color: white;
+}
+
+header h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+
+  color: white;
+}
+
+main {
+  margin: 92px 0;
+
+  width: 100%;
+  padding: 31px 0 16px;
+
+  background-color: #e5e5e5;
+}
+
+section {
+  margin-bottom: 27px;
+}
+
+section h3 {
+  margin: 17px 19px;
+
+  font-family: "Righteous", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 26px;
+
+  color: #333333;
+}
+
+section .selection {
+  display: flex;
+  gap: 16px;
+
+  overflow-x: scroll;
+}
+
+section .selection article:first-child {
+  margin-left: 19px;
+}
+
+section .selection article:last-child {
+  margin-right: 19px;
+}
+
+article {
+  position: relative;
+
+  padding: 18px 14px 13px;
+  width: 172px;
+  border-radius: 9px;
+
+  background-color: white;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+}
+
+article .check {
+  position: absolute;
+  bottom: 16px;
+  right: 13px;
+
+  display: none;
+
+  font-size: 16px;
+  color: #32b72f;
+}
+
+article.selected {
+  box-shadow: inset 0px 0px 0px 5px #32b72f;
+}
+
+article.selected .check {
+  display: inline;
+}
+
+article img {
+  width: 144px;
+  height: auto;
+  border-radius: 4px;
+}
+
+article .name {
+  margin-top: 8px;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+
+  color: #333333;
+}
+
+article .description {
+  margin: 5px 0;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 15px;
+
+  color: #a6a6a6;
+}
+
+article .price {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+
+  color: black;
+}
+
+article .price-value {
+  display: none;
+}
+
+.send-order {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+
+  display: flex;
+
+  width: 100%;
+  height: 92px;
+
+  background-color: white;
+}
+
+.send-order button {
+  margin: auto;
+
+  width: 88%;
+  height: 61px;
+  border-radius: 50px;
+  padding: 0 40px;
+
+  background-color: #cbcbcb;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+
+  text-align: center;
+  color: white;
+
+  pointer-events: none;
+}
+
+.send-order button.enable {
+  background-color: #32b72f;
+  font-weight: 700;
+
+  cursor: pointer;
+  pointer-events: auto;
+}

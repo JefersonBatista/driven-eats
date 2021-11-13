@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="styles/reset.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,100;1,300;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/confirmation.css" />
+
+    <title>DrivenEats</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>DrivenEats</h1>
+      <h2>Sua comida em 6 minutos</h2>
+    </header>
+
+    <main>
+      <section class="dish">
+        <h3>Primeiro, seu prato</h3>
+        <div class="selection">
+          <article onclick="select_dish(this)">
+            <img src="images/frango_batata.jpeg" />
+            <h4 class="name">Frango com Batata</h4>
+            <p class="description">
+              Bastante coxa de frango e bastante batata cozida
+            </p>
+            <span class="price">R$ 16,00</span>
+            <span class="price-value">16.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_dish(this)">
+            <img src="images/strogonoff.jpeg" />
+            <h4 class="name">Strogonoff de Frango</h4>
+            <p class="description">
+              Frango, molho, arroz, batata palha e folhinhas.
+            </p>
+            <span class="price">R$ 18,50</span>
+            <span class="price-value">18.50</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_dish(this)">
+            <img src="images/empadão.jpeg" />
+            <h4 class="name">Empadão de Frango</h4>
+            <p class="description">Empadão com tomatinho e folhinhas</p>
+            <span class="price">R$ 12,00</span>
+            <span class="price-value">12.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_dish(this)">
+            <img src="images/frango_quiabo.jpg" />
+            <h4 class="name">Frango com Quiabo</h4>
+            <p class="description">Um pouco de quiabo bem cozido no frango</p>
+            <span class="price">R$ 17,00</span>
+            <span class="price-value">17.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_dish(this)">
+            <img src="images/bobó_camarão.jpeg" />
+            <h4 class="name">Bobó de Camarão</h4>
+            <p class="description">Bobó de camarão na cumbuca</p>
+            <span class="price">R$ 20,50</span>
+            <span class="price-value">20.50</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_dish(this)">
+            <img src="images/moqueca.jpeg" />
+            <h4 class="name">Moqueca Capixaba</h4>
+            <p class="description">
+              Não é peixada, é moqueca capixaba. Na cumbuca
+            </p>
+            <span class="price">R$ 23,00</span>
+            <span class="price-value">23.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+        </div>
+      </section>
+
+      <section class="drink">
+        <h3>Agora, sua bebida</h3>
+        <div class="selection">
+          <article onclick="select_drink(this)">
+            <img src="images/guaraná.webp" />
+            <h4 class="name">Latinha de Guaraná</h4>
+            <p class="description">
+              Lata de 350ml de guaraná, que é melhor que coca-cola
+            </p>
+            <span class="price">R$ 2,50</span>
+            <span class="price-value">2.50</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_drink(this)">
+            <img src="images/coca-cola.jpg" />
+            <h4 class="name">Latinha de Coca-Cola</h4>
+            <p class="description">Lata de 350ml</p>
+            <span class="price">R$ 3,50</span>
+            <span class="price-value">3.50</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_drink(this)">
+            <img src="images/suco_laranja.jpeg" />
+            <h4 class="name">Suco de Laranja</h4>
+            <p class="description">Copão de 500ml</p>
+            <span class="price">R$ 5,00</span>
+            <span class="price-value">5.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_drink(this)">
+            <img src="images/suco_limão.jpg" />
+            <h4 class="name">Suco de Limão</h4>
+            <p class="description">Copão de 500ml</p>
+            <span class="price">R$ 4,00</span>
+            <span class="price-value">4.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_drink(this)">
+            <img src="images/suco_abacaxi.jpeg" />
+            <h4 class="name">Suco de Abacaxi</h4>
+            <p class="description">Copão de 500ml</p>
+            <span class="price">R$ 3,50</span>
+            <span class="price-value">3.50</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+        </div>
+      </section>
+
+      <section class="dessert">
+        <h3>Por fim, sua sobremesa</h3>
+        <div class="selection">
+          <article onclick="select_dessert(this)">
+            <img src="images/casquinha_chocolate.png" />
+            <h4 class="name">Casquinha de Chocolate</h4>
+            <p class="description">Sorvete casquinha de chocolate</p>
+            <span class="price">R$ 2,00</span>
+            <span class="price-value">2.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_dessert(this)">
+            <img src="images/casquinha_baunilha.jpeg" />
+            <h4 class="name">Casquinha de Baunilha</h4>
+            <p class="description">Sorvete casquinha de baunilha</p>
+            <span class="price">R$ 2,00</span>
+            <span class="price-value">2.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_dessert(this)">
+            <img src="images/casquinha_misto.png" />
+            <h4 class="name">Casquinha Sabor Misto</h4>
+            <p class="description">Sorvete casquinha de chocolate e baunilha</p>
+            <span class="price">R$ 2,00</span>
+            <span class="price-value">2.00</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+          <article onclick="select_dessert(this)">
+            <img src="images/sundae_chocolate.jpg" />
+            <h4 class="name">Sundae de Chocolate</h4>
+            <p class="description">Um delicioso sundae de chocolate</p>
+            <span class="price">R$ 4,50</span>
+            <span class="price-value">4.50</span>
+            <ion-icon class="check" name="checkmark-circle"></ion-icon>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="send-order">
+      <button onclick="confirmation()">
+        Selecione os 3 itens para fechar o pedido
+      </button>
+    </div>
+
+    <!-- Confirmation screen -->
+    <div class="confirmation-screen">
+      <div class="confirmation">
+        <h1>Confirme seu pedido</h1>
+        <div class="list">
+          <div class="item dish">
+            <span class="name">Placeholder</span>
+            <span class="price">88,88</span>
+          </div>
+          <div class="item drink">
+            <span class="name">Placeholder</span>
+            <span class="price">88,88</span>
+          </div>
+          <div class="item dessert">
+            <span class="name">Placeholder</span>
+            <span class="price">88,88</span>
+          </div>
+          <div class="total">
+            <span>Total</span>
+            <span class="value">R$ 88,88</span>
+          </div>
+        </div>
+        <div class="options">
+          <button class="confirm" onclick="send_order()">
+            Tudo certo, pode pedir!
+          </button>
+          <button class="cancel" onclick="cancel()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Installing ion-icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
