@@ -2,136 +2,136 @@ let dish,
   drink,
   dessert = null;
 
-function select_dish(selected_dish) {
+function selectDish(selectedDish) {
   // If a dish is already selected, remove the current selection
   if (dish) {
     dish.classList.remove("selected");
   }
 
   // Select the new dish
-  dish = selected_dish;
-  selected_dish.classList.add("selected");
+  dish = selectedDish;
+  selectedDish.classList.add("selected");
 
   // Check if order is complete
-  is_order_complete();
+  isOrderComplete();
 }
 
-function select_drink(selected_drink) {
+function selectDrink(selectedDrink) {
   // If a drink is already selected, remove the current selection
   if (drink) {
     drink.classList.remove("selected");
   }
 
   // Select the new drink
-  drink = selected_drink;
-  selected_drink.classList.add("selected");
+  drink = selectedDrink;
+  selectedDrink.classList.add("selected");
 
   // Check if order is complete
-  is_order_complete();
+  isOrderComplete();
 }
 
-function select_dessert(selected_dessert) {
+function selectDessert(selectedDessert) {
   // If a dessert is already selected, remove the current selection
   if (dessert) {
     dessert.classList.remove("selected");
   }
 
   // Select the new dessert
-  dessert = selected_dessert;
-  selected_dessert.classList.add("selected");
+  dessert = selectedDessert;
+  selectedDessert.classList.add("selected");
 
   // Check if order is complete
-  is_order_complete();
+  isOrderComplete();
 }
 
-function is_order_complete() {
+function isOrderComplete() {
   // If a dish, a drink and a dessert are all seletected, the order can be finished
   if (dish && drink && dessert) {
-    const order_button = document.querySelector(".send-order button");
-    order_button.classList.add("enable");
-    order_button.innerHTML = "Fechar pedido";
+    const orderButton = document.querySelector(".send-order button");
+    orderButton.classList.add("enable");
+    orderButton.innerHTML = "Fechar pedido";
   }
 }
 
-function send_order() {
-  const user_name = prompt("Qual é o seu nome?");
-  const user_address = prompt("Qual é o seu endereço?");
+function sendOrder() {
+  const userName = prompt("Qual é o seu nome?");
+  const userAddress = prompt("Qual é o seu endereço?");
 
-  const dish_name = get_item_name(dish);
-  const drink_name = get_item_name(drink);
-  const dessert_name = get_item_name(dessert);
+  const dishName = getItemName(dish);
+  const drinkName = getItemName(drink);
+  const dessertName = getItemName(dessert);
   const total =
-    get_item_price(dish) + get_item_price(drink) + get_item_price(dessert);
-  const total_text = get_value_text(total);
+    getItemPrice(dish) + getItemPrice(drink) + getItemPrice(dessert);
+  const totalText = getValueText(total);
 
-  let msg_builder = "Olá, gostaria de fazer o pedido:\n";
-  msg_builder += "- Prato: " + dish_name + "\n";
-  msg_builder += "- Bebida: " + drink_name + "\n";
-  msg_builder += "- Sobremesa: " + dessert_name + "\n";
-  msg_builder += "Total: " + total_text + "\n\n";
+  let msgBuilder = "Olá, gostaria de fazer o pedido:\n";
+  msgBuilder += "- Prato: " + dishName + "\n";
+  msgBuilder += "- Bebida: " + drinkName + "\n";
+  msgBuilder += "- Sobremesa: " + dessertName + "\n";
+  msgBuilder += "Total: " + totalText + "\n\n";
 
-  msg_builder += "Nome: " + user_name + "\n";
-  msg_builder += "Endereço: " + user_address;
+  msgBuilder += "Nome: " + userName + "\n";
+  msgBuilder += "Endereço: " + userAddress;
 
-  const msg = msg_builder;
+  const msg = msgBuilder;
   window.open("https://wa.me/5527997867009?text=" + encodeURIComponent(msg));
 
-  // Hide the confirmation screen and undo all selections
+  // Hide the confirmation screen and reset initial screen
   document.querySelector(".confirmation-screen").classList.remove("show");
-  undo_all_selections();
+  undoAllSelections();
 }
 
-function get_item_name(item) {
+function getItemName(item) {
   return item.querySelector(".name").innerHTML;
 }
 
-function get_item_price(item) {
-  const price_string = item.querySelector(".price").innerHTML;
+function getItemPrice(item) {
+  const priceString = item.querySelector(".price").innerHTML;
 
   // Removing 'R$ ' before convert to value
-  return parseFloat(price_string.slice(3).replace(",", "."));
+  return parseFloat(priceString.slice(3).replace(",", "."));
 }
 
 // Convert a value to a pt-br formatted price text
-function get_value_text(value) {
+function getValueText(value) {
   return "R$ " + value.toLocaleString("pt-BR", { minimumFractionDigits: 2 });
 }
 
 // Only fills and shows the confirmation screen
 function confirmation() {
-  const confirmation_screen = document.querySelector(".confirmation-screen");
+  const confirmationScreen = document.querySelector(".confirmation-screen");
 
   // Remove 'R$ ' from all individual prices
 
-  const confirm_dish = confirmation_screen.querySelector(".dish");
-  confirm_dish.querySelector(".name").innerHTML =
+  const confirmDish = confirmationScreen.querySelector(".dish");
+  confirmDish.querySelector(".name").innerHTML =
     dish.querySelector(".name").innerHTML;
-  confirm_dish.querySelector(".price").innerHTML = dish
+  confirmDish.querySelector(".price").innerHTML = dish
     .querySelector(".price")
     .innerHTML.slice(3);
 
-  const confirm_drink = confirmation_screen.querySelector(".drink");
-  confirm_drink.querySelector(".name").innerHTML =
+  const confirmDrink = confirmationScreen.querySelector(".drink");
+  confirmDrink.querySelector(".name").innerHTML =
     drink.querySelector(".name").innerHTML;
-  confirm_drink.querySelector(".price").innerHTML = drink
+  confirmDrink.querySelector(".price").innerHTML = drink
     .querySelector(".price")
     .innerHTML.slice(3);
 
-  const confirm_dessert = confirmation_screen.querySelector(".dessert");
-  confirm_dessert.querySelector(".name").innerHTML =
+  const confirmDessert = confirmationScreen.querySelector(".dessert");
+  confirmDessert.querySelector(".name").innerHTML =
     dessert.querySelector(".name").innerHTML;
-  confirm_dessert.querySelector(".price").innerHTML = dessert
+  confirmDessert.querySelector(".price").innerHTML = dessert
     .querySelector(".price")
     .innerHTML.slice(3);
 
   const total =
-    get_item_price(dish) + get_item_price(drink) + get_item_price(dessert);
-  const total_text = get_value_text(total);
+    getItemPrice(dish) + getItemPrice(drink) + getItemPrice(dessert);
+  const totalText = getValueText(total);
 
-  const confirm_total = confirmation_screen.querySelector(".total");
-  confirm_total.querySelector(".value").innerHTML = total_text;
+  const confirmTotal = confirmationScreen.querySelector(".total");
+  confirmTotal.querySelector(".value").innerHTML = totalText;
 
-  confirmation_screen.classList.add("show");
+  confirmationScreen.classList.add("show");
 }
 
 // Only hides the confirmation screen
@@ -139,7 +139,15 @@ function cancel() {
   document.querySelector(".confirmation-screen").classList.remove("show");
 }
 
-function undo_all_selections() {
-  const all_selected = Array.from(document.querySelectorAll(".selected"));
-  all_selected.forEach((item) => item.classList.remove("selected"));
+function undoAllSelections() {
+  const allSelected = Array.from(document.querySelectorAll(".selected"));
+  allSelected.forEach((item) => item.classList.remove("selected"));
+
+  // Reset order button
+  const orderButton = document.querySelector(".send-order button");
+  orderButton.classList.remove("enable");
+  orderButton.innerHTML = "Selecione os 3 itens para fechar o pedido";
+
+  // Scroll to begin
+  window.scrollTo(0, 0);
 }
