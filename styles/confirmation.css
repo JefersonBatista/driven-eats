@@ -20,7 +20,6 @@
   align-items: center;
 
   width: 90%;
-  height: 353px;
   border-radius: 9px;
   padding: 21px 25px 0;
 
@@ -48,6 +47,9 @@
 .confirmation .total {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  margin: 10px 0;
 }
 
 .confirmation .item span,

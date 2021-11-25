@@ -76,8 +76,9 @@ function send_order() {
   const msg = msg_builder;
   window.open("https://wa.me/5527997867009?text=" + encodeURIComponent(msg));
 
-  // Hide the confirmation screen
+  // Hide the confirmation screen and undo all selections
   document.querySelector(".confirmation-screen").classList.remove("show");
+  undo_all_selections();
 }
 
 function get_item_name(item) {
@@ -85,7 +86,10 @@ function get_item_name(item) {
 }
 
 function get_item_price(item) {
-  return parseFloat(item.querySelector(".price-value").innerHTML);
+  const price_string = item.querySelector(".price").innerHTML;
+
+  // Removing 'R$ ' before convert to value
+  return parseFloat(price_string.slice(3).replace(",", "."));
 }
 
 // Convert a value to a pt-br formatted price text
@@ -97,23 +101,28 @@ function get_value_text(value) {
 function confirmation() {
   const confirmation_screen = document.querySelector(".confirmation-screen");
 
+  // Remove 'R$ ' from all individual prices
+
   const confirm_dish = confirmation_screen.querySelector(".dish");
   confirm_dish.querySelector(".name").innerHTML =
     dish.querySelector(".name").innerHTML;
-  confirm_dish.querySelector(".price").innerHTML =
-    dish.querySelector(".price").innerHTML;
+  confirm_dish.querySelector(".price").innerHTML = dish
+    .querySelector(".price")
+    .innerHTML.slice(3);
 
   const confirm_drink = confirmation_screen.querySelector(".drink");
   confirm_drink.querySelector(".name").innerHTML =
     drink.querySelector(".name").innerHTML;
-  confirm_drink.querySelector(".price").innerHTML =
-    drink.querySelector(".price").innerHTML;
+  confirm_drink.querySelector(".price").innerHTML = drink
+    .querySelector(".price")
+    .innerHTML.slice(3);
 
   const confirm_dessert = confirmation_screen.querySelector(".dessert");
   confirm_dessert.querySelector(".name").innerHTML =
     dessert.querySelector(".name").innerHTML;
-  confirm_dessert.querySelector(".price").innerHTML =
-    dessert.querySelector(".price").innerHTML;
+  confirm_dessert.querySelector(".price").innerHTML = dessert
+    .querySelector(".price")
+    .innerHTML.slice(3);
 
   const total =
     get_item_price(dish) + get_item_price(drink) + get_item_price(dessert);
@@ -128,4 +137,9 @@ function confirmation() {
 // Only hides the confirmation screen
 function cancel() {
   document.querySelector(".confirmation-screen").classList.remove("show");
+}
+
+function undo_all_selections() {
+  const all_selected = Array.from(document.querySelectorAll(".selected"));
+  all_selected.forEach((item) => item.classList.remove("selected"));
 }
